@@ -1,4 +1,4 @@
-package com.hhhblock.encryptionVote.config;
+package com.hhhblock.encryptionvote.config;
 
 import java.lang.String;
 import lombok.Data;

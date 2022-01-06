@@ -1,4 +1,4 @@
-package com.hhhblock.encryptionVote.controller;
+package com.hhhblock.encryptionvote.controller;
 
 import java.math.BigInteger;
 import java.security.KeyPair;
@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.hhhblock.encryptionVote.model.CommonRequest;
-import com.hhhblock.encryptionVote.model.CommonResponse;
-import com.hhhblock.encryptionVote.model.bo.CallPaillierAddVoteInputBO;
-import com.hhhblock.encryptionVote.model.bo.CallPaillierCreateVoteInputBO;
-import com.hhhblock.encryptionVote.model.bo.CallPaillierGetVoteInputBO;
-import com.hhhblock.encryptionVote.service.CallPaillierService;
+import com.hhhblock.encryptionvote.model.CommonRequest;
+import com.hhhblock.encryptionvote.model.CommonResponse;
+import com.hhhblock.encryptionvote.model.bo.CallPaillierAddVoteInputBO;
+import com.hhhblock.encryptionvote.model.bo.CallPaillierCreateVoteInputBO;
+import com.hhhblock.encryptionvote.model.bo.CallPaillierGetVoteInputBO;
+import com.hhhblock.encryptionvote.service.CallPaillierService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

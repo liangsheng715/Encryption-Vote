@@ -1,4 +1,4 @@
-package com.hhhblock.encryptionVote.config;
+package com.hhhblock.encryptionvote.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.fisco.bcos.sdk.BcosSDK;

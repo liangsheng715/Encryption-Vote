@@ -1,4 +1,4 @@
-package com.hhhblock.encryptionVote.model.bo;
+package com.hhhblock.encryptionvote.model.bo;
 
 import java.lang.Object;
 import java.lang.String;
@@ -11,15 +11,18 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaillierPrecompiledPaillierAddInputBO {
-  private String cipher1;
+public class CallPaillierCreateVoteInputBO {
+  private String voteName;
 
-  private String cipher2;
+  private List<String> names;
+
+  private String initCiphertext;
 
   public List<Object> toArgs() {
     List args = new ArrayList();
-    args.add(cipher1);
-    args.add(cipher2);
+    args.add(voteName);
+    args.add(names);
+    args.add(initCiphertext);
     return args;
   }
 }

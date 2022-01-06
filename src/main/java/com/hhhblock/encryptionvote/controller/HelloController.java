@@ -1,7 +1,7 @@
-package com.hhhblock.encryptionVote.controller;
+package com.hhhblock.encryptionvote.controller;
 
-import com.hhhblock.encryptionVote.model.bo.HelloWorldSetInputBO;
-import com.hhhblock.encryptionVote.service.HelloWorldService;
+import com.hhhblock.encryptionvote.model.bo.HelloWorldSetInputBO;
+import com.hhhblock.encryptionvote.service.HelloWorldService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

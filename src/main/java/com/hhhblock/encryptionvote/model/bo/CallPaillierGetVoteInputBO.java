@@ -1,4 +1,4 @@
-package com.hhhblock.encryptionVote.model.bo;
+package com.hhhblock.encryptionvote.model.bo;
 
 import java.lang.Object;
 import java.lang.String;

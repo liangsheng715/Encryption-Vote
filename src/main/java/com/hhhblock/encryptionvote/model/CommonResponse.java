@@ -1,4 +1,4 @@
-package com.hhhblock.encryptionVote.model;
+package com.hhhblock.encryptionvote.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

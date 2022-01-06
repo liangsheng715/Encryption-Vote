@@ -1,8 +1,8 @@
-package com.hhhblock.encryptionVote;
+package com.hhhblock.encryptionvote;
 
 import java.util.Arrays;
 
-import com.hhhblock.encryptionVote.constants.ContractConstants;
+import com.hhhblock.encryptionvote.constants.ContractConstants;
 
 import org.fisco.bcos.sdk.client.Client;
 import org.fisco.bcos.sdk.crypto.CryptoSuite;

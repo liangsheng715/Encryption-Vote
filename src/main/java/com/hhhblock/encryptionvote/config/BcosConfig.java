@@ -1,4 +1,4 @@
-package com.hhhblock.encryptionVote.config;
+package com.hhhblock.encryptionvote.config;
 
 import lombok.Data;
 import org.fisco.bcos.sdk.config.model.AmopTopic;

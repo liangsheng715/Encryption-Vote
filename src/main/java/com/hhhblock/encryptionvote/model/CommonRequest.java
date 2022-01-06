@@ -1,4 +1,4 @@
-package com.hhhblock.encryptionVote.model;
+package com.hhhblock.encryptionvote.model;
 
 import java.util.List;
 

@@ -1,14 +1,14 @@
-package com.hhhblock.encryptionVote.service;
+package com.hhhblock.encryptionvote.service;
 
 import java.lang.Exception;
 import java.lang.String;
 import javax.annotation.PostConstruct;
 
-import com.hhhblock.encryptionVote.constants.ContractConstants;
-import com.hhhblock.encryptionVote.model.bo.CallPaillierAddInputBO;
-import com.hhhblock.encryptionVote.model.bo.CallPaillierAddVoteInputBO;
-import com.hhhblock.encryptionVote.model.bo.CallPaillierCreateVoteInputBO;
-import com.hhhblock.encryptionVote.model.bo.CallPaillierGetVoteInputBO;
+import com.hhhblock.encryptionvote.constants.ContractConstants;
+import com.hhhblock.encryptionvote.model.bo.CallPaillierAddInputBO;
+import com.hhhblock.encryptionvote.model.bo.CallPaillierAddVoteInputBO;
+import com.hhhblock.encryptionvote.model.bo.CallPaillierCreateVoteInputBO;
+import com.hhhblock.encryptionvote.model.bo.CallPaillierGetVoteInputBO;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

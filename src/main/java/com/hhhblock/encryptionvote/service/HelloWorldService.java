@@ -1,12 +1,12 @@
-package com.hhhblock.encryptionVote.service;
+package com.hhhblock.encryptionvote.service;
 
 import java.lang.Exception;
 import java.lang.String;
 import java.util.Arrays;
 import javax.annotation.PostConstruct;
 
-import com.hhhblock.encryptionVote.constants.ContractConstants;
-import com.hhhblock.encryptionVote.model.bo.HelloWorldSetInputBO;
+import com.hhhblock.encryptionvote.constants.ContractConstants;
+import com.hhhblock.encryptionvote.model.bo.HelloWorldSetInputBO;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
