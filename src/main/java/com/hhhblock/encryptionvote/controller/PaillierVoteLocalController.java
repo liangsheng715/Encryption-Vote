@@ -4,20 +4,10 @@ import java.math.BigInteger;
 import java.security.KeyPair;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.hhhblock.encryptionvote.model.CommonRequest;
-import com.hhhblock.encryptionvote.model.CommonResponse;
-import com.hhhblock.encryptionvote.model.bo.CallPaillierAddVoteInputBO;
-import com.hhhblock.encryptionvote.model.bo.CallPaillierCreateVoteInputBO;
-import com.hhhblock.encryptionvote.model.bo.CallPaillierGetVoteInputBO;
-import com.hhhblock.encryptionvote.service.CallPaillierService;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,21 +19,17 @@ import paillier.PaillierCipher;
 import paillier.PaillierKeyPair;
 
 @RestController
-@RequestMapping("vote")
-public class PaillierVote {
-
-    @Autowired
-    private CallPaillierService service;
+@RequestMapping("voteLocal")
+public class PaillierVoteLocalController {
 
     private RSAPublicKey pubKey;
     private RSAPrivateKey priKey;
-
     private HashMap<String, BigInteger> plaintext;
     private HashMap<String, String> cipher;
 
-    public PaillierVote() {
+    public PaillierVoteLocalController() {
         // generate the key pair for encrypt and decrypt
-        KeyPair keypair = PaillierKeyPair.generateStrongKeyPair();
+        KeyPair keypair = PaillierKeyPair.generateGoodKeyPair();
         pubKey = (RSAPublicKey) keypair.getPublic();
         priKey = (RSAPrivateKey) keypair.getPrivate();
 
@@ -85,41 +71,6 @@ public class PaillierVote {
     @GetMapping("getPlaintext")
     public BigInteger getPlaintext(@RequestParam("data") String data) {
         return PaillierCipher.decrypt(data, priKey);
-    }
-
-    @PostMapping("createVote")
-    public CommonResponse createVote(@RequestBody CommonRequest req) throws Exception {
-        String ciphertext = PaillierCipher.encrypt(BigInteger.valueOf(0), pubKey);
-        CallPaillierCreateVoteInputBO input = new CallPaillierCreateVoteInputBO(req.getVoteName(), req.getNames(),
-                ciphertext);
-        return CommonResponse.ok(service.createVote(input).getReturnMessage());
-    }
-
-    @PostMapping("addVote")
-    public CommonResponse addVote(@RequestBody CommonRequest req) throws Exception {
-        List<String> ciphertexts = new ArrayList<>();
-        for (String value : req.getPlaintexts()) {
-            BigInteger m = new BigInteger(value);
-            String ciphertext = PaillierCipher.encrypt(m, pubKey);
-            ciphertexts.add(ciphertext);
-        }
-        CallPaillierAddVoteInputBO input = new CallPaillierAddVoteInputBO(req.getVoteName(), req.getNames(),
-                ciphertexts);
-        return CommonResponse.ok(service.addVote(input).getReturnMessage());
-    }
-
-    @PostMapping("getVote")
-    public CommonResponse getVote(@RequestBody CommonRequest req) throws Exception {
-        CallPaillierGetVoteInputBO input = new CallPaillierGetVoteInputBO(req.getVoteName(), req.getNames());
-        List<Object> results = service.getVote(input).getReturnObject();
-        List<String> ciphertexts = (List<String>) results.get(1);
-        List<String> plaintexts = new ArrayList<>();
-        for (String ciphertext : ciphertexts) {
-            plaintexts.add(PaillierCipher.decrypt(ciphertext, priKey).toString());
-        }
-        results.remove(1);
-        results.add(plaintexts);
-        return CommonResponse.ok(results);
     }
 
 }
