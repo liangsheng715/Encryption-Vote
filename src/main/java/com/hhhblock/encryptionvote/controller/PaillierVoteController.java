@@ -22,6 +22,7 @@ import com.hhhblock.encryptionvote.service.CallPaillierService;
 
 import org.fisco.bcos.sdk.client.Client;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +33,7 @@ import paillier.PaillierCipher;
 import paillier.PaillierKeyPair;
 
 @RestController
+@CrossOrigin
 @RequestMapping("vote")
 public class PaillierVoteController {
 
@@ -66,7 +68,7 @@ public class PaillierVoteController {
         addresses[0] = client.getCryptoSuite().getCryptoKeyPair().getAddress();
 
         for (AccountData accountData : accountService.getAccounts()) {
-            if (accountData.getName().equals(req.getName())) {
+            if (accountData.getAccount().equals(req.getName())) {
                 addresses[1] = accountData.getAddress();
             }
         }
@@ -121,7 +123,7 @@ public class PaillierVoteController {
     }
 
     @GetMapping("getVoteList")
-    public List<Object> getVoteList() throws Exception {
+    public CommonResponse getVoteList() throws Exception {
         List<Object> temp = new ArrayList<>();
         for (Entry<String, ProposalData> proposal : proposals.entrySet()) {
             ProposalData temp2 = new ProposalData();
@@ -130,7 +132,7 @@ public class PaillierVoteController {
             temp2.setAddresses(proposal.getValue().getAddresses());
             temp.add(temp2);
         }
-        return temp;
+        return CommonResponse.ok(temp);
     }
 
 }
