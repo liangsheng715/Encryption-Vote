@@ -20,7 +20,7 @@ import lombok.Data;
 @Data
 public class AccountService {
 
-    private List<AccountData> accounts;
+    public List<AccountData> accounts;
 
     @Autowired
     private Client client;

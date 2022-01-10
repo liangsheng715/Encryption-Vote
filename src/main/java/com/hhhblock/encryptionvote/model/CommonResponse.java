@@ -22,4 +22,8 @@ public class CommonResponse {
     public static CommonResponse fail(String code, Exception ex) {
         return new CommonResponse(code, ex.getMessage(), null);
     }
+
+    public static CommonResponse fail(String code, String message) {
+        return new CommonResponse(code, message, null);
+    }
 }

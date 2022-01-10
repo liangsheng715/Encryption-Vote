@@ -14,5 +14,6 @@ public class CommonRequest {
     private String voteName;
     private List<String> names;
     private List<String> plaintexts;
+    private String name;
 
 }

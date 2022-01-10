@@ -17,5 +17,6 @@ public class ProposalData {
     private List<String> names;
     private RSAPublicKey pubKey;
     private RSAPrivateKey priKey;
+    private String[] addresses;
 
 }
