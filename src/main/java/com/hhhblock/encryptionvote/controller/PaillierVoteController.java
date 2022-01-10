@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.hhhblock.encryptionvote.model.AccountData;
 import com.hhhblock.encryptionvote.model.CommonRequest;
@@ -21,6 +22,7 @@ import com.hhhblock.encryptionvote.service.CallPaillierService;
 
 import org.fisco.bcos.sdk.client.Client;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -116,6 +118,19 @@ public class PaillierVoteController {
 
         return CommonResponse.ok(results);
 
+    }
+
+    @GetMapping("getVoteList")
+    public List<Object> getVoteList() throws Exception {
+        List<Object> temp = new ArrayList<>();
+        for (Entry<String, ProposalData> proposal : proposals.entrySet()) {
+            ProposalData temp2 = new ProposalData();
+            temp2.setVoteName(proposal.getValue().getVoteName());
+            temp2.setNames(proposal.getValue().getNames());
+            temp2.setAddresses(proposal.getValue().getAddresses());
+            temp.add(temp2);
+        }
+        return temp;
     }
 
 }
