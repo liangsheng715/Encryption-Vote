@@ -30,7 +30,7 @@ public class PaillierVoteController {
         return CommonResponse.ok(service.addVote(req));
     }
 
-    @GetMapping("getVote")
+    @PostMapping("getVote")
     public CommonResponse getVote(@RequestBody CommonRequest req) throws Exception {
         return CommonResponse.ok(service.getVote(req));
 

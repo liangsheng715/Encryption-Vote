@@ -64,4 +64,13 @@ public class AccountService {
         client.getCryptoSuite().setCryptoKeyPair(cryptoKeyPair);
     }
 
+    public void logout(Map<String, String> params) {
+        // 创建非国密类型的CryptoSuite
+        CryptoSuite cryptoSuite = new CryptoSuite(CryptoType.ECDSA_TYPE);
+        // 根据私钥生成非国密公私钥对
+        CryptoKeyPair cryptoKeyPair = cryptoSuite.createKeyPair();
+        // 替换当前SDK用户密钥对
+        client.getCryptoSuite().setCryptoKeyPair(cryptoKeyPair);
+    }
+
 }

@@ -59,4 +59,11 @@ public class AccountController {
         return CommonResponse.fail("400", "用户或密码不正确，请重新输入");
     }
 
+    @PostMapping("logout")
+    public CommonResponse logout(@RequestBody Map<String, String> params) {
+
+        service.logout(params);
+        return CommonResponse.ok("退出成功");
+    }
+
 }

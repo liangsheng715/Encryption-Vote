@@ -60,7 +60,7 @@ public class PaillierVoteService {
         addresses[0] = client.getCryptoSuite().getCryptoKeyPair().getAddress();
 
         for (AccountData accountData : accountService.getAccounts()) {
-            if (accountData.getName().equals(req.getName())) {
+            if (accountData.getAccount().equals(req.getName())) {
                 addresses[1] = accountData.getAddress();
             }
         }
