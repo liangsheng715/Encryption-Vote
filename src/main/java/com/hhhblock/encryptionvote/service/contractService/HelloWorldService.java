@@ -1,4 +1,4 @@
-package com.hhhblock.encryptionvote.service;
+package com.hhhblock.encryptionvote.service.contractService;
 
 import java.lang.Exception;
 import java.lang.String;
